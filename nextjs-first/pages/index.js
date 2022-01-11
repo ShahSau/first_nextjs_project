@@ -1,14 +1,21 @@
 import fs from "fs/promises";
 import path from "path";
 import Link from "next/link"
+import Head from "next/head"
 function HomePage(props) {
   const { products } = props;
   return (
+    <div>
+      <Head>
+        <title>next js thing</title>
+        <meta name="description" content="what to write"></meta>
+      </Head>
     <ul>
       {products.map((product) => (
         <li key={product.id}><Link href={`/${product.id}`}>{product.title}</Link></li>
       ))}
     </ul>
+    </div>
   );
 }
 //if nextjs see the getStaticProps, it will calll this before anything in the page
